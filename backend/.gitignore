@@ -3,3 +3,6 @@
 
 # env files (can opt-in for committing if needed)
 .env*
+
+# compiled JavaScript files
+/dist
