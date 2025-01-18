@@ -1,12 +1,14 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import { clerkMiddleware } from '@clerk/express'
 
 dotenv.config();
 dotenv.config({ path: ".env.local" });
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
-console.log(process.env.PORT);
+
+app.use(clerkMiddleware())
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
