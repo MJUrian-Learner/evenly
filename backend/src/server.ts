@@ -14,10 +14,9 @@ dotenv.config({ path: ".env.local" });
 const app: Express = express();
 const port = process.env.PORT || 5000;
 
-
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(express.json());
 app.use(clerkMiddleware());
-app.use(express.json()); // Ensure JSON parsing for incoming requests
 
 app.get("/", (req: Request, res: Response) => {
   res.json("Express + TypeScript Server");
